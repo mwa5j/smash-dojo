@@ -36,7 +36,7 @@ const withAuthentication = Component => {
         }
     }
 
-    return withFirebase(withAuthentication)
+    return withFirebase(WithAuthentication)
 }
 
 export default withAuthentication;
