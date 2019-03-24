@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+import { withAuthorization } from '../Session'
+
+class Admin extends Component {
     render(){
         return(
             <div>
@@ -10,4 +12,7 @@ class App extends Component {
     }
 }
 
-export default App;
+
+const condition = authUser => !!authUser
+
+export default withAuthorization(condition)(Admin);
