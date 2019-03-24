@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import SignOutButton from '../SignOut';
@@ -27,6 +27,9 @@ const NavigationAuth = () => (
         </li>
         <li>
             <Link to={ROUTES.ACCOUNT}>Account</Link>
+        </li>
+        <li>
+            <Link to={ROUTES.ADMIN}>Admin</Link>
         </li>
         <li>
             <SignOutButton />
