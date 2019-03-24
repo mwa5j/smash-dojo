@@ -33,20 +33,26 @@ class SignUpFormBase extends Component {
     }
 
     onSubmit = (e) => {
-        const {username, email, password1} = this.state
-
-        e.preventDefault()
+        const { username, email, password1} = this.state
         
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, password1)
             .then(authUser => {
+                return this.props.firebase
+                    .user(authUser.user.uid)
+                    .set({
+                        username,
+                        email,
+                    })
+            })
+            .then(() => {
                 this.setState({...INIT_STATE})
                 this.props.history.push(ROUTES.HOME)
             })
             .catch(error => {
                 this.setState({error})
             })
-
+        e.preventDefault()
     }
 
     onChange = (e) => {
@@ -67,9 +73,7 @@ class SignUpFormBase extends Component {
         const isInvalid = 
             password1 !== password2 ||
             password1 === '' ||
-            email === '' ||
-            username === ''
-        
+            email === ''         
 
         return (
             <form onSubmit={this.onSubmit}>
