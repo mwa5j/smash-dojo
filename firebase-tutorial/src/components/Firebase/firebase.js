@@ -50,6 +50,12 @@ class Firebase {
     message = uid => this.db.ref(`messages/${uid}`)
 
     messages = () => this.db.ref('messages')
+
+    // ** Game Results API ** //
+
+    set = uid => this.db.ref(`sets/${uid}`)
+
+    sets = () => this.db.ref('sets')
 }
 
 export default Firebase;
