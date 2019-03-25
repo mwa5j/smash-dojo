@@ -2,7 +2,6 @@ import React from 'react';
 import { compose } from 'recompose';
 
 import { withAuthorization } from '../Session'
-import Messages from '../Messages';
 import SetResults from '../SetResults'
 import { withFirebase } from '../Firebase';
 
@@ -30,10 +29,6 @@ class HomePage extends React.Component {
     render(){
         return(
             <div>
-                <h1>Home Page</h1>
-                <p>The Home Page is accessible to signed in users</p>
-        
-                <Messages users={this.state.users} />
                 <SetResults users={this.state.users} />
             </div>
         )

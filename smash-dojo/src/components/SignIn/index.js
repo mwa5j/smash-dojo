@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
+import '../../css/Form.css'
+
 import { SignUpLink } from '../SignUp/index';
 import { PasswordForgetLink } from '../PasswordForget'
 import { withFirebase } from '../Firebase/context';
@@ -70,25 +72,29 @@ class SignInFormBase extends Component {
         
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input 
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <input 
-                    name="password"
-                    value={password}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Password"
-                />
-                <button disabled={isInvalid} type="submit">Sign In</button>
-                
-                {error && <p>{error.message}</p>}
-            </form>
+            <div className="formContainer">
+                    <form onSubmit={this.onSubmit}>
+                    <input
+                        className="input"
+                        name="email"
+                        value={email}
+                        onChange={this.onChange}
+                        type="text"
+                        placeholder="Email Address"
+                    />
+                    <input 
+                        className="input"
+                        name="password"
+                        value={password}
+                        onChange={this.onChange}
+                        type="text"
+                        placeholder="Password"
+                    />
+                    <input className="submit" disabled={isInvalid} type="submit" value="Sign In" />
+
+                    {error && <p>{error.message}</p>}
+                </form>
+            </div>
         )
     }
 

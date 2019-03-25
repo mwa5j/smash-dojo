@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import '../../css/Form.css'
+
 import { withFirebase } from '../Firebase'
 import { AuthUserContext } from '../Session'
 
@@ -92,28 +94,29 @@ class GameResults extends Component {
                 {authUser => (
                     <div>
                         <h1>Report Set:</h1>
-                        <form onSubmit={e => this.createSet(e, authUser)}>
-                            <div>
+                        <div className="formContainer">
+                            <form onSubmit={e => this.createSet(e, authUser)}>                           
                                 <label>Number of wins:</label>
                                 <input
+                                    className="input"
                                     type="number"
                                     name={"userScore"}
                                     value={userScore} 
                                     placeholder='Number of wins' onChange={this.onChange}
                                 />
-                            </div>
-                            <div>
+                            
                                 <label>Number of losses:</label>
                                 <input
+                                    className="input"
                                     type="number"
                                     name={"oppScore"}
                                     value={oppScore} 
                                     placeholder='Number of losses' onChange={this.onChange}
                                 />
-                            </div>
-                            <div>
+                            
                                 <label>Your Character:</label>
                                 <select
+                                    className="input"
                                     name={"userChar"}
                                     value={userChar}
                                     onChange={this.onChange}
@@ -124,10 +127,10 @@ class GameResults extends Component {
                                     <option value='D.K.'>D.K.</option>
                                     <option value='Samus'>Samus</option>
                                 </select>
-                            </div>
-                            <div>
+                            
                                 <label>Opponent's Character:</label>
                                 <select
+                                    className="input"
                                     name={"oppChar"}
                                     value={oppChar}
                                     onChange={this.onChange}
@@ -138,11 +141,11 @@ class GameResults extends Component {
                                     <option value='D.K.'>D.K.</option>
                                     <option value='Samus'>Samus</option>
                                 </select>
-                            </div>
-                            <div>
-                                <button type="submit">Report</button>
-                            </div>
-                        </form>
+                            
+                                <input className="submit" type="submit" value="Submit" />
+                                
+                            </form>
+                        </div>
 
                         {loading && <div>Loading...</div>}
 
