@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange'
+import SignOutButton from '../SignOut'
 
-import { withFirebase } from '../Firebase';
 import { withAuthorization, AuthUserContext } from '../Session';
+import { withFirebase } from '../Firebase'
 
 class AccountPage extends Component {
     render(){
@@ -15,6 +16,7 @@ class AccountPage extends Component {
                     <h1>Account: { this.props.firebase.auth.currentUser.email }</h1>
                     <PasswordForgetForm />
                     <PasswordChangeForm />
+                    <SignOutButton />
                 </div>
                 )}
             </AuthUserContext.Consumer>
