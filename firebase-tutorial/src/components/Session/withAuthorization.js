@@ -6,6 +6,8 @@ import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+// Same basic idea as withAuthentication, but packaged up with a condition option
+
 const withAuthorization = condition => Component => {
     class WithAuthorization extends React.Component {
         
